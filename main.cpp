@@ -29,11 +29,11 @@ int main()
     double currentElapsedTime = 0.0f;
 
     //Sector Circle Variables
-    float outerRadius = 40.f;
+    float outerRadius    = 40.f;
     float minOuterRadius = 50;
-    float startAngle = 0.f;
-    float endAngle = 100.f;
-    int segments = 100;
+    float startAngle     = 0.f;
+    float endAngle       = 100.f;
+    int   segments       = 100;
 
     float mouseAngle;
 
@@ -48,15 +48,15 @@ int main()
     {
         //Current time modified in game loop with GetFrameTime function
         currentElapsedTime += GetFrameTime();
-        float deltaTime = GetFrameTime();
+        float deltaTime     = GetFrameTime();
 
         //Mouse Position and Mouse-Ball distance vectors 
         Vector2 mousePos = GetMousePosition();
-        float distance = Vector2Distance(mousePos, ballPos);
+        float   distance = Vector2Distance(mousePos, ballPos);
 
         //Radian and Degree calculation of mouse position using ball as an origin
         float centerLineRadian = std::atan2(mousePos.y - ballPos.y, mousePos.x - ballPos.x);
-        float centerLineAngle = centerLineRadian * (180 / PI);
+        float centerLineAngle  = centerLineRadian * (180 / PI);
 
         //If angle goes below 0 modify it to 360
         if(centerLineAngle < 0) centerLineAngle += 360;
@@ -66,8 +66,8 @@ int main()
 
         //Sector Circle Width modifier
         float sectorWidth = maxSectorAngle - Clamp(distance, minSectorAngle, maxSectorAngle - minSectorAngle);
-        startAngle = centerLineAngle - sectorWidth;
-        endAngle = centerLineAngle + sectorWidth;
+        startAngle        = centerLineAngle - sectorWidth;
+        endAngle          = centerLineAngle + sectorWidth;
         
         //Input Movement call
         InputMovement(ballPos, deltaTime);
