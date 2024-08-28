@@ -1,7 +1,6 @@
 #include <cmath>
 #include "raylib/include/raylib.h"
 #include "raylib/include/raymath.h"
-#include "steamaudio/include/phonon.h"
 
 //Screen Size
 const int   screenWidth   {800};
@@ -30,7 +29,7 @@ int main()
 
     //Sector Circle Variables
     float outerRadius    = 40.f;
-    float minOuterRadius = 50;
+    float minOuterRadius = 50.f;
     float startAngle     = 0.f;
     float endAngle       = 100.f;
     int   segments       = 100;
@@ -82,7 +81,7 @@ int main()
             //Draw Sector Circle
             DrawCircleSector(ballPos, outerRadius, startAngle, endAngle, segments, Fade(PINK, 0.3));
             //Draw Main Circle
-            DrawCircleV(ballPos, 20, RAYWHITE);
+            DrawCircleV(ballPos, 12, RAYWHITE);
         EndDrawing();
     }
 
