@@ -1,4 +1,3 @@
-#include <cmath>
 #include "raylib/include/raylib.h"
 #include "raylib/include/raymath.h"
 
@@ -57,7 +56,7 @@ int main()
         float radarSFXPan = ((ballPos.x - mousePos.x) / 800) + 0.5f;
 
         //Radian and Degree calculation of mouse position using ball as an origin
-        float centerLineRadian = std::atan2(mousePos.y - ballPos.y, mousePos.x - ballPos.x);
+        float centerLineRadian = atan2f(mousePos.y - ballPos.y, mousePos.x - ballPos.x);
         float centerLineAngle  = centerLineRadian * (180 / PI);
 
         //If angle goes below 0 modify it to 360
