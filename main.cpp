@@ -53,6 +53,9 @@ int main()
         Vector2 mousePos = GetMousePosition();
         float   distance = Vector2Distance(mousePos, ballPos);
 
+        //Sound panning variable
+        float radarSFXPan = ((ballPos.x - mousePos.x) / 800) + 0.5f;
+
         //Radian and Degree calculation of mouse position using ball as an origin
         float centerLineRadian = std::atan2(mousePos.y - ballPos.y, mousePos.x - ballPos.x);
         float centerLineAngle  = centerLineRadian * (180 / PI);
@@ -70,6 +73,7 @@ int main()
         
         //Input Movement call
         InputMovement(ballPos, deltaTime);
+        SetSoundPan(radarSFX, radarSFXPan);
         if(IsKeyPressed(KEY_F)) PlaySound(radarSFX);
 
         BeginDrawing();
@@ -78,6 +82,8 @@ int main()
             DrawText(TextFormat("%f", currentElapsedTime), 20, 20, 20, RAYWHITE);
             //Current angle panel
             DrawText(TextFormat("%f", centerLineAngle), 20, 40, 20, RAYWHITE);
+            //Current Sound Pan position
+            DrawText(TextFormat("%f", radarSFXPan), 20, 60, 20, RAYWHITE);
             //Draw Sector Circle
             DrawCircleSector(ballPos, outerRadius, startAngle, endAngle, segments, Fade(PINK, 0.3));
             //Draw Main Circle
