@@ -6,8 +6,8 @@ const int   screenWidth   {800};
 const int   screenHeight  {600};
 
 //Sector Circle min-max angle
-const float maxSectorAngle = 180.0f;
-const float minSectorAngle = 5.0f;
+const float maxSectorAngle {180.0f};
+const float minSectorAngle {5.0f};
 
 //Movement Speed 
 const float movementSpeed {200.0f};
